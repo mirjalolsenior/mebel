@@ -44,16 +44,8 @@ export function usePWA() {
     window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
     window.addEventListener("appinstalled", handleAppInstalled)
 
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker
-        .register("/sw.js") // Fixed path from /api/sw.js to /sw.js
-        .then((registration) => {
-          console.log("[PWA] Service Worker registered:", registration)
-        })
-        .catch((error) => {
-          console.error("[PWA] Service Worker registration failed:", error)
-        })
-    }
+    // Service worker functionality will be available when deployed to production
+    console.log("[PWA] Service worker registration disabled in preview environment")
 
     // Check notification permission
     if ("Notification" in window) {
@@ -107,17 +99,14 @@ export function usePWA() {
       return
     }
 
-    if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
-      navigator.serviceWorker.controller.postMessage({
-        type: "SHOW_NOTIFICATION",
-        payload: { title, options },
-      })
-    } else {
+    try {
       new Notification(title, {
         icon: "/icons/icon-192x192.png",
         badge: "/icons/icon-192x192.png",
         ...options,
       })
+    } catch (error) {
+      console.error("[PWA] Failed to show notification:", error)
     }
   }
 

@@ -57,10 +57,6 @@ export function useDueDateNotifications() {
           body,
           tag: "due-today",
           requireInteraction: true,
-          actions: [
-            { action: "view", title: "Ko'rish" },
-            { action: "dismiss", title: "Keyinroq" },
-          ],
         })
       }
 
@@ -75,10 +71,6 @@ export function useDueDateNotifications() {
         showNotification(title, {
           body,
           tag: "due-tomorrow",
-          actions: [
-            { action: "view", title: "Ko'rish" },
-            { action: "dismiss", title: "Tushundim" },
-          ],
         })
       }
     }
