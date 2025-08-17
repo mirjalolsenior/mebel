@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase/client"
 import type { Database } from "@/lib/supabase/client"
 
@@ -14,7 +14,7 @@ export function useClients() {
   const [error, setError] = useState<string | null>(null)
 
   // Fetch clients
-  const fetchClients = useCallback(async () => {
+  const fetchClients = async () => {
     try {
       const { data, error } = await supabase.from("clients").select("*").order("created_at", { ascending: false })
 
@@ -25,7 +25,7 @@ export function useClients() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }
 
   // Create client
   const createClient = async (client: ClientInsert) => {
@@ -76,6 +76,7 @@ export function useClients() {
           table: "clients",
         },
         (payload) => {
+          console.log("[v0] Clients real-time update:", payload)
           fetchClients() // Refetch all clients on any change
         },
       )
@@ -84,7 +85,7 @@ export function useClients() {
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [fetchClients])
+  }, [])
 
   return {
     clients,

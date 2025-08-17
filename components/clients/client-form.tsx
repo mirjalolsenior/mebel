@@ -78,7 +78,7 @@ export function ClientForm({ client, onSuccess, onSubmit, title = "Mijoz" }: Cli
 
       <div className="grid grid-cols-3 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="delivered_count">Olib kelgan (ta) *</Label>
+          <Label htmlFor="delivered_count">Yetkazilgan (ta) *</Label>
           <Input
             id="delivered_count"
             type="number"

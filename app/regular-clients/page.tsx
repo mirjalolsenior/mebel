@@ -95,7 +95,7 @@ export default function RegularClientsPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold">{totalDelivered}</div>
-          <div className="text-sm text-muted-foreground">Jami olib kelgan</div>
+          <div className="text-sm text-muted-foreground">Jami yetkazilgan</div>
         </div>
         <div className="bg-card p-4 rounded-lg border">
           <div className="text-2xl font-bold">{totalTapeUsed.toFixed(1)}m</div>

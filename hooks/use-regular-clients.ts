@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase/client"
 import type { Database } from "@/lib/supabase/client"
 
@@ -14,7 +14,7 @@ export function useRegularClients() {
   const [error, setError] = useState<string | null>(null)
 
   // Fetch regular clients
-  const fetchRegularClients = useCallback(async () => {
+  const fetchRegularClients = async () => {
     try {
       const { data, error } = await supabase
         .from("regular_clients")
@@ -28,7 +28,7 @@ export function useRegularClients() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }
 
   // Create regular client
   const createRegularClient = async (client: RegularClientInsert) => {
@@ -79,6 +79,7 @@ export function useRegularClients() {
           table: "regular_clients",
         },
         (payload) => {
+          console.log("[v0] Regular clients real-time update:", payload)
           fetchRegularClients() // Refetch all regular clients on any change
         },
       )
@@ -87,7 +88,7 @@ export function useRegularClients() {
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [fetchRegularClients])
+  }, [])
 
   return {
     regularClients,

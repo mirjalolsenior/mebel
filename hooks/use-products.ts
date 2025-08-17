@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useCallback } from "react"
+import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabase/client"
 import type { Database } from "@/lib/supabase/client"
 
@@ -14,7 +14,7 @@ export function useProducts() {
   const [error, setError] = useState<string | null>(null)
 
   // Fetch products
-  const fetchProducts = useCallback(async () => {
+  const fetchProducts = async () => {
     try {
       const { data, error } = await supabase.from("products").select("*").order("created_at", { ascending: false })
 
@@ -25,7 +25,7 @@ export function useProducts() {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }
 
   // Create product
   const createProduct = async (product: ProductInsert) => {
@@ -76,6 +76,7 @@ export function useProducts() {
           table: "products",
         },
         (payload) => {
+          console.log("[v0] Products real-time update:", payload)
           fetchProducts() // Refetch all products on any change
         },
       )
@@ -84,7 +85,7 @@ export function useProducts() {
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [fetchProducts])
+  }, [])
 
   return {
     products,
