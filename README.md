@@ -22,3 +22,4 @@ Ilovani telefon/kompyuterga o'rnatish mumkin. Bildirishnomalar uchun brauzerda r
 
 ## Eslatma
 Zakazlar sahifasida `qachon_berish_kerak` sanasidan 1 kun oldin bildirishnoma ko'rsatiladi (ilova ochiq bo'lsa).
+# mebel
