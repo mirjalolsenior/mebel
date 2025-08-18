@@ -22,7 +22,7 @@ module.exports = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://raw.githack.com;",
+            value: "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://raw.githack.com https://raw.githubusercontent.com;",
           },
         ],
       },
