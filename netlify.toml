@@ -1,0 +1,30 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[functions.save-fcm-token]
+  timeout = 10
+
+[functions.send-push-notification]
+  timeout = 30
+
+[functions.send-push-to-all]
+  timeout = 60
+
+# Redirects for service workers
+[[redirects]]
+  from = "/firebase-messaging-sw.js"
+  to = "/firebase-messaging-sw.js"
+  status = 200
+  force = true
+  headers = { X-Content-Type-Options = "nosniff", Content-Type = "application/javascript" }
