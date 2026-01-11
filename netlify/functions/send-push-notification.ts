@@ -84,7 +84,7 @@ export const handler: Handler = async (event, context) => {
       },
       
 // Prepare notification payload (FIXED for Android)
-const message: any = {
+const message = {
   notification: {
     title,
     body: notificationBody,
