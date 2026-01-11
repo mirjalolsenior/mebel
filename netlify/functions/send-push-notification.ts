@@ -75,18 +75,68 @@ export const handler: Handler = async (event, context) => {
     }
 
     // Prepare notification payload
+    
     const message = {
       notification: {
         title,
         body: notificationBody,
         imageUrl: data?.image,
       },
-      data: {
-        ...data,
-        icon: icon || "/icon-192.jpg",
-        badge: data?.badge || "/icon-192.jpg",
-        click_action: data?.url || "/",
+      
+// Prepare notification payload (FIXED for Android)
+const message: any = {
+  notification: {
+    title,
+    body: notificationBody,
+  },
+
+  // 🔥 ANDROID — ENG MUHIM QISM
+  android: {
+    priority: "high",
+    notification: {
+      sound: "default",
+      channelId: "default",
+      clickAction: "OPEN_APP",
+    },
+  },
+
+  // 🌐 WEB (Desktop Chrome ishlayotgani shu sabab)
+  webpush: {
+    headers: {
+      Urgency: "high",
+    },
+    notification: {
+      title,
+      body: notificationBody,
+      icon: icon || "/icon-192.jpg",
+      badge: data?.badge || "/icon-192.jpg",
+      requireInteraction: data?.requireInteraction !== false,
+      tag: data?.tag || "default",
+    },
+    fcmOptions: {
+      link: data?.url || "/",
+    },
+  },
+
+  // 🍎 iOS
+  apns: {
+    payload: {
+      aps: {
+        alert: {
+          title,
+          body: notificationBody,
+        },
+        sound: "default",
+        badge: 1,
       },
+    },
+  },
+
+  // 📦 DATA — faqat qo‘shimcha info
+  data: {
+    url: data?.url || "/",
+  },
+} ,
       webpush: {
         notification: {
           title,
@@ -113,6 +163,7 @@ export const handler: Handler = async (event, context) => {
         },
       },
     }
+    
 
     // Send to single token or multiple tokens
     if (token) {
