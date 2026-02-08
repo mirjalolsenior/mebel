@@ -1,21 +1,10 @@
-exports.handler = async function (event) {
+exports.handler = async function () {
   try {
-    const SUPABASE_URL = "https://gnjiffwwfbdievpgaaod.supabase.co/functions/v1/push-cron";
-    const CRON_SECRET = process.env.CRON_SECRET || "";
-
-    if (!CRON_SECRET) {
-      return {
-        statusCode: 500,
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ok: false, error: "CRON_SECRET missing in Netlify env" }),
-      };
-    }
-
-    const resp = await fetch(SUPABASE_URL, {
+    const resp = await fetch("https://gnjiffwwfbdievpgaaod.supabase.co/functions/v1/push-cron", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "authorization": `Bearer ${CRON_SECRET}`,
+        "authorization": `Bearer ${process.env.CRON_SECRET || "YOUR_CRON_SECRET"}`,
       },
       body: JSON.stringify({
         source: "netlify-cron",
