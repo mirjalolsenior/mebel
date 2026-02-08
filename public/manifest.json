@@ -1,0 +1,59 @@
+{
+  "name": "Sherdor Mebel - Biznes boshqaruv tizimi",
+  "short_name": "Sherdor Mebel",
+  "description": "Sherdor Mebel kompaniyasi uchun biznes boshqaruv tizimi",
+  "start_url": "/",
+  "display": "standalone",
+  "scope": "/",
+  "orientation": "portrait-primary",
+  "theme_color": "#6366f1",
+  "background_color": "#ffffff",
+  "categories": [
+    "business",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "/mebel-sherdor-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mebel-sherdor-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/mebel-sherdor-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/mebel-sherdor-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Zakazlar",
+      "short_name": "Zakazlar",
+      "description": "Zakazlarni ko'rish",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/mebel-sherdor-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
+}
