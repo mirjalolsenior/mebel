@@ -118,7 +118,7 @@ export function ZapchastlarForm({ onSuccess }: ZapchastlarFormProps) {
                 <SelectValue placeholder="Amal turini tanlang" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Keltirildi">Keltirildi</SelectItem>
+                <SelectItem value="Olib kelindi">Olib kelindi</SelectItem>
                 <SelectItem value="Ishlatildi">Ishlatildi</SelectItem>
               </SelectContent>
             </Select>

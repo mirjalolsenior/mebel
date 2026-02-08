@@ -118,12 +118,8 @@ export function KronkalarForm({ onSuccess }: KronkalarFormProps) {
                 <SelectValue placeholder="Amal turini tanlang" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Keltirildi">Keltirildi</SelectItem>
                 <SelectItem value="Olib kelindi">Olib kelindi</SelectItem>
-                <SelectItem value="Olib keldi">Olib keldi</SelectItem>
                 <SelectItem value="Ishlatildi">Ishlatildi</SelectItem>
-                <SelectItem value="Chiqdi">Chiqdi</SelectItem>
-                <SelectItem value="Sotildi">Sotildi</SelectItem>
               </SelectContent>
             </Select>
           </div>

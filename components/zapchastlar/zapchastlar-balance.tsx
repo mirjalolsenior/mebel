@@ -22,8 +22,6 @@ export function ZapchastlarBalance({ refreshTrigger }: { refreshTrigger: number 
   const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState("")
 
-  const inActions = ["in", "add", "receive"]
-  const outActions = ["out", "subtract", "use"]
 
   useEffect(() => {
     async function fetchItems() {
@@ -61,12 +59,10 @@ export function ZapchastlarBalance({ refreshTrigger }: { refreshTrigger: number 
 
             const qty = toNumber(row.miqdor)
 
-            if (inActions.includes((row.amal_turi || "").trim().toLowerCase())) {
+            if (isIn(row.amal_turi, row.izoh)) {
               grouped[key].keltirilgan += qty
-            } else if (outActions.includes((row.amal_turi || "").trim().toLowerCase())) {
+            } else if (isOut(row.amal_turi, row.izoh)) {
               grouped[key].ishlatilgan += qty
-            } else {
-              console.warn(`[v0] Unknown amal_turi: "${row.amal_turi}" for row ${row.id}`)
             }
 
             grouped[key].balans = grouped[key].keltirilgan - grouped[key].ishlatilgan
