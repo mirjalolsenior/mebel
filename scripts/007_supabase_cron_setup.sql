@@ -25,7 +25,7 @@ select cron.schedule(
   '*/5 * * * *',
   $$
   select net.http_post(
-    url := 'https://zyhlxxcxlaarkzgxvsug.supabase.co/functions/v1/push-cron',
+    url := 'https://gnjiffwwfbdievpgaaod.supabase.co/functions/v1/push-cron',
     headers := jsonb_build_object(
       'Content-Type','application/json',
       'Authorization','Bearer YOUR_CRON_SECRET'
@@ -41,7 +41,7 @@ select cron.schedule(
   '0 4 * * *',
   $$
   select net.http_post(
-    url := 'https://zyhlxxcxlaarkzgxvsug.supabase.co/functions/v1/push-cron',
+    url := 'https://gnjiffwwfbdievpgaaod.supabase.co/functions/v1/push-cron',
     headers := jsonb_build_object(
       'Content-Type','application/json',
       'Authorization','Bearer YOUR_CRON_SECRET'
