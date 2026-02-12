@@ -59,7 +59,7 @@ export function NotificationManager() {
         // Show success notification
         new Notification("Sherdor Mebel", {
           body: "Bildirishnomalar muvaffaqiyatli yoqildi!",
-          icon: "/logo.png",
+          icon: "/mebel-sherdor-logo.png",
         })
       }
     } catch (error) {
@@ -87,8 +87,8 @@ export function NotificationManager() {
       const reg = await navigator.serviceWorker.ready
       await reg.showNotification("Test Bildirishnoma", {
         body: "Bu test bildirishnomasi. Tizim to'g'ri ishlayapti!",
-        icon: "/logo.png",
-        badge: "/logo.png",
+        icon: "/mebel-sherdor-logo.png",
+        badge: "/mebel-sherdor-logo.png",
         tag: "test-notification",
         requireInteraction: true,
         data: { url: "/" },
@@ -98,7 +98,7 @@ export function NotificationManager() {
       try {
         new Notification("Test Bildirishnoma", {
           body: "Bu test bildirishnomasi. Tizim to'g'ri ishlayapti!",
-          icon: "/logo.png",
+          icon: "/mebel-sherdor-logo.png",
         })
       } catch {}
     }
@@ -110,8 +110,8 @@ export function NotificationManager() {
         () => {
           new Notification(title, {
             body: message,
-            icon: "/logo.png",
-            badge: "/logo.png",
+            icon: "/mebel-sherdor-logo.png",
+            badge: "/mebel-sherdor-logo.png",
             vibrate: [100, 50, 100],
           })
         },

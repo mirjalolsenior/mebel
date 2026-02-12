@@ -89,8 +89,8 @@ export async function sendPushNotificationToAll(payload: PushNotificationPayload
     const notification: PushNotificationPayload = {
       title: payload.title,
       body: payload.body,
-      icon: payload.icon || "/logo.png",
-      badge: payload.badge || "/logo.png",
+      icon: payload.icon || "/mebel-sherdor-logo.png",
+      badge: payload.badge || "/mebel-sherdor-logo.png",
       vibrate: payload.vibrate || [100, 50, 100],
       tag: notificationTag,
       requireInteraction: payload.requireInteraction ?? true,
@@ -189,8 +189,8 @@ export async function sendPushNotification(endpoint: string, payload: PushNotifi
     const notification: PushNotificationPayload = {
       title: payload.title,
       body: payload.body,
-      icon: payload.icon || "/logo.png",
-      badge: payload.badge || "/logo.png",
+      icon: payload.icon || "/mebel-sherdor-logo.png",
+      badge: payload.badge || "/mebel-sherdor-logo.png",
       vibrate: payload.vibrate || [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),

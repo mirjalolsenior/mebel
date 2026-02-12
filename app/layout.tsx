@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Roboto_Mono } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { PWAProvider } from "@/components/pwa/pwa-provider"
 import { Toaster } from "@/components/ui/sonner"
@@ -53,13 +52,13 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#6366f1" />
         <meta name="msapplication-tap-highlight" content="no" />
                 <link rel="manifest" href="/manifest.json" />
-<link rel="apple-touch-icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/mebel-sherdor-logo.png" />
       </head>
       <body className={`font-sans ${inter.variable} ${robotoMono.variable} bg-background min-h-screen`}>
         <PWAProvider>
           <Suspense fallback={null}>{children}</Suspense>
         </PWAProvider>
-        <Analytics />
+        
         <Toaster />
       </body>
     </html>

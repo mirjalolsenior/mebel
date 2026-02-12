@@ -191,8 +191,8 @@ export function PWAProvider({ children }: { children: React.ReactNode }) {
     if (notificationPermission === "granted") {
       new Notification(title, {
         body,
-        icon: "/logo.png",
-        badge: "/logo.png",
+        icon: "/mebel-sherdor-logo.png",
+        badge: "/mebel-sherdor-logo.png",
         vibrate: [100, 50, 100],
       })
     }
